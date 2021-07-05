@@ -8,14 +8,15 @@ import { useAuth0 } from '@auth0/auth0-react';
 const TodoList = () => {
 	const dispatch = useDispatch();
 	const todos = useSelector((state) => state.todos);
-	const { user, getAccessTokenSilently } = useAuth0();
+	const { user, getAccessTokenSilently, isAuthenticated } = useAuth0();
 
 	useEffect(() => {
 		dispatch(getTodosAsync({ user, getAccessTokenSilently }));
 	}, [dispatch, user, getAccessTokenSilently]);
 
 	return (
-		<div>
+		isAuthenticated && (<div>
+			<h3>Your todos</h3>
 			{todos.map((todo) => (
 				<ul className='list-group' key={todo._id}>
 					<TodoItem 
@@ -26,7 +27,7 @@ const TodoList = () => {
 					/>
 				</ul>
 			))}
-		</div>
+		</div>)
 		
 	);
 };

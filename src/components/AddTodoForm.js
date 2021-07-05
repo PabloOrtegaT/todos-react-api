@@ -30,17 +30,18 @@ const AddTodoForm = () => {
 
 	return (
 		isAuthenticated && (
-			<form onSubmit={onSubmit} className='form-inline mt-3 mb-3'>
+			<form onSubmit={onSubmit} className='form-inline mt-5 mb-5'>
+			<h4 className='mb-3'>Add new todo</h4>
 			<label>Todo title</label>
 			<input
 				type='text'
-				className='form-control mb-2 mr-sm-2'
+				className='form-control mb-3 mr-sm-2'
 				placeholder='Add todo...'
 				value={value}
 				onChange={(event) => setValue(event.target.value)}
 			></input>
-			<label>Completion before</label>
-			<div className='datePicker'>
+			<label>To complete before</label>
+			<div className='datePicker mb-3'>
 				<DatePicker 
 					selected={startDate} 
 					onChange={(date) => setStartDate(date)} 
@@ -50,10 +51,9 @@ const AddTodoForm = () => {
 				/>
 			</div>
 			
-			<button type='submit' className='btn btn-primary mt-3 mb-2'>
+			<button type='submit' className='btn btn-primary mt-2'>
 				Submit
 			</button>
-			
 		</form>
 		)	
 	);
