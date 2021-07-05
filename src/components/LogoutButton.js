@@ -6,7 +6,7 @@ const LogoutButton = () => {
 
     return (
         isAuthenticated && (
-        <button type="button" class="btn btn-outline-dark p-3" onClick={() => logout()}>
+        <button type="button" className="btn btn-outline-dark p-3" onClick={() => logout( { returnTo :"http://localhost:3000/"} )}>
                 Logout
         </button>)
     )
